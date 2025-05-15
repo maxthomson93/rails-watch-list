@@ -1,0 +1,13 @@
+<h1>This is where each list will be displayed</h1>
+
+<%# http://localhost:3000/lists/:id %>
+
+<% @list.name %>
+    <% @bookmarks.each do |bookmark| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),">
+        <strong><%= bookmark.movie.title %>:</strong>
+        <%= bookmark.comment %>
+      </div>
+    <% end %>
+
+<%= link_to "Add a bookmark!", new_list_bookmark_path(@list) %>

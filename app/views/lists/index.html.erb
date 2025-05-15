@@ -1,0 +1,23 @@
+<%# http://localhost:3000/lists %>
+
+<h1>This is for the index of the lists</h1>
+
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+          <% @lists.each do |list| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.bauerhosting.com/empire/2022/01/Best-Movies-List.jpg?ar=16%3A9&fit=crop&crop=top&auto=format&w=1440&q=80)">
+        <%= link_to list.name, list_path(list), class: 'text-decoration-none text-white' %>
+      </div>
+    <% end %>
+        <%= link_to lists_path, class: 'btn btn-success' do  %>
+          <i class="fa-solid fa-shield-cat"></i>
+          return
+        <% end %>
+        <%# <%= link_to new_list_bookmark_path(@list), class: 'btn btn-warning fa-10x'  do  %>
+          <%# <i class="fa-solid fa-shield-cat"></i> %>
+        <%# <% end %>
+      </p>
+    </div>
+  </div>
+</div>
