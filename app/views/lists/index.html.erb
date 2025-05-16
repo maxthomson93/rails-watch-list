@@ -4,7 +4,7 @@
   <div class="card">
     <div class="card-body">
       <% @lists.each do |list| %>
-        <div class="card-category" style="margin-top: 5px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path(@list.photo.key' %>)">
+        <div class="card-category" style="margin-top: 5px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= list.photo.attached? ? cl_image_path(@list.photo.key) : image_path('https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff54fe5c0-9990-4168-aeda-aee589a2a2d7_4750x3783.jpeg')' %>)">
           <%= link_to list.name, list_path(list), class: 'text-decoration-none text-white' %>
         </div>
       <% end %>
