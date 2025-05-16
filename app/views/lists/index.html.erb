@@ -1,26 +1,28 @@
 <%# http://localhost:3000/lists %>
-<h1>This is for the index of the lists</h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://historyfacts.com/wp-content/uploads/sites/9/2024/04/FEATURE_HF_Movies-from-the-70s.jpg) ;">
+  <div class="container">
+    <h1>Movies, films, flick, pictures...</h1>
+    <p>A library for motion pictures, whatever you call them.</p>
+  </div>
+</div>
 <div class="container">
-  <div class="card">
-    <div class="card-body">
-      <% @lists.each do |list| %>
-        <% image_url = list.photo.attached? ? cl_image_path(list.photo.key) : 'https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff54fe5c0-9990-4168-aeda-aee589a2a2d7_4750x3783.jpeg' %>
-        <div class="card-category"
-        style="margin-top: 5px;
-        height: 150px;
-        width: 150px;
-        background-size: cover;
-        background-position: center;
+  <div class="cards">
+    <% @lists.each do |list| %>
+      <% image_url = list.photo.attached? ? cl_image_path(list.photo.key) : 'https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff54fe5c0-9990-4168-aeda-aee589a2a2d7_4750x3783.jpeg' %>
+      <div class="card-category"
+        style="
         background-image:
         linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_url %>)">
-          <%= link_to list.name, list_path(list), class: 'text-decoration-none text-white' %>
-        </div>
-      <% end %>
-      <%= link_to lists_path, class: 'btn btn-success' do  %>
-        <i class="fa-solid fa-shield-cat"></i>
-        return
-      <% end %>
-      <%= link_to "Add a new list!", new_list_path(@list) %>
-    </div>
+        <%= link_to list.name, list_path(list), class: 'text-decoration-none text-white' %>
+      </div>
+    <% end %>
+    <%= link_to new_list_path(@list), class: 'btn btn-success' do  %>
+      <i class="fa-solid fa-plus"></i>
+      add new
+    <% end %>
+    <%= link_to lists_path, class: 'btn btn-warning' do  %>
+      <i class="fa-solid fa-house"></i>
+      return
+    <% end %>
   </div>
 </div>

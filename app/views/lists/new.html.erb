@@ -1,7 +1,15 @@
-<h1>Form for creating new lists</h1>
+<h1>Create a list:</h1>
 <%# http://localhost:3000/lists/new %>
-<%= simple_form_for [@list] do |f|%>
-  <%= f.input :name %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit 'Submit', class: 'btn btn-success mt-3' %>
-<% end %>
+<div class="container">
+  <%= simple_form_for [@list] do |f|%>
+    <%= f.input :name %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit 'Submit', class: 'btn btn-success mt-3' %>
+  <% end %>
+  <div>
+    <%= link_to lists_path, class: 'btn btn-warning' do  %>
+      <i class="fa-solid fa-shield-cat"></i>
+      return
+    <% end %>
+  </div>
+</div>

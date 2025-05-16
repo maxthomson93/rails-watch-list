@@ -1,13 +1,13 @@
-<h1>This is where each list will be displayed</h1>
-
+<h1>PUT SOMETHING CLEVER HERE</h1>
 <%# http://localhost:3000/lists/:id %>
-
-<% @list.name %>
-    <% @bookmarks.each do |bookmark| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),">
-        <strong><%= bookmark.movie.title %>:</strong>
-        <%= bookmark.comment %>
-      </div>
-    <% end %>
-
+<% @bookmarks.each do |bookmark| %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),">
+    <strong><%= bookmark.movie.title %>:</strong>
+    <%= bookmark.comment %>
+  </div>
+<% end %>
 <%= link_to "Add a bookmark!", new_list_bookmark_path(@list) %>
+<%= link_to lists_path, class: 'btn btn-warning' do  %>
+  <i class="fa-solid fa-shield-cat"></i>
+  return
+<% end %>
