@@ -1,8 +1,7 @@
 <h1>Form for creating new lists</h1>
-
 <%# http://localhost:3000/lists/new %>
-
 <%= simple_form_for [@list] do |f|%>
   <%= f.input :name %>
+  <%= f.input :photo, as: :file %>
   <%= f.submit 'Submit', class: 'btn btn-success mt-3' %>
 <% end %>
