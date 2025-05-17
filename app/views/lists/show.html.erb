@@ -1,13 +1,22 @@
-<h1>PUT SOMETHING CLEVER HERE</h1>
-<%# http://localhost:3000/lists/:id %>
-<% @bookmarks.each do |bookmark| %>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),">
-    <strong><%= bookmark.movie.title %>:</strong>
-    <%= bookmark.comment %>
+<% image_url = @list.photo.attached? ? cl_image_path(@list.photo.key) : 'https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff54fe5c0-9990-4168-aeda-aee589a2a2d7_4750x3783.jpeg' %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_url %>) ;">
+  <div class="container">
+    <h1><%= @list.name%></h1>
+    <div class="cards">
+      <% @bookmarks.each do |bookmark| %>
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="<%= bookmark.movie.poster_url %>" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"><%= bookmark.movie.title %></h5>
+            <p class="card-text"><%= bookmark.comment %></p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <p>Add movies to your list</p>
+    <div class="cards" style="color: #DDDDDD">
+      <%= render 'bookmarks/bookmark_form' %>
+    </div>
   </div>
-<% end %>
-<%= link_to "Add a bookmark!", new_list_bookmark_path(@list) %>
-<%= link_to lists_path, class: 'btn btn-warning' do  %>
-  <i class="fa-solid fa-shield-cat"></i>
-  return
-<% end %>
+</div>

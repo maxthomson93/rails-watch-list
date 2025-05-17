@@ -1,9 +1,13 @@
 <%# http://localhost:3000/lists %>
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://historyfacts.com/wp-content/uploads/sites/9/2024/04/FEATURE_HF_Movies-from-the-70s.jpg) ;">
   <div class="container">
-    <h1>Movies, films, flick, pictures...</h1>
+    <h1>Movies, films, flicks, pictures...</h1>
     <p>A library for motion pictures, whatever you call them.</p>
+    <div class="cards" style="color: #DDDDDD">
+      <%= render 'list_form' %>
+    </div>
   </div>
+</div>
 </div>
 <div class="container">
   <div class="cards">
@@ -15,14 +19,6 @@
         linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_url %>)">
         <%= link_to list.name, list_path(list), class: 'text-decoration-none text-white' %>
       </div>
-    <% end %>
-    <%= link_to new_list_path(@list), class: 'btn btn-success' do  %>
-      <i class="fa-solid fa-plus"></i>
-      add new
-    <% end %>
-    <%= link_to lists_path, class: 'btn btn-warning' do  %>
-      <i class="fa-solid fa-house"></i>
-      return
     <% end %>
   </div>
 </div>

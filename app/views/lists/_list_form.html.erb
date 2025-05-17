@@ -1,0 +1,5 @@
+  <%= simple_form_for @list do |f| %>
+  <%= f.input :name, label: "Name your new list" %>
+  <%= f.input :photo, label: "Upload a background image", as: :file %>
+  <%= f.submit 'Submit', class: 'btn btn-warning' %>
+<% end %>

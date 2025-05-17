@@ -1,10 +1,1 @@
-<h1>Here is the form to create bookmarks</h1>
-<%= simple_form_for [@list, @bookmark] do |f|%>
-  <%= f.input :movie_id, collection: @movies, label_method: :title, value_method: :id, prompt: "Select a movie" %>
-  <%= f.input :comment %>
-  <%= f.submit 'Submit', class: 'btn btn-success mt-3' %>
-<% end %>
-<%= link_to lists_path, class: 'btn btn-warning' do  %>
-  <i class="fa-solid fa-shield-cat"></i>
-  return
-<% end %>
+<%= render 'bookmark_form' %>

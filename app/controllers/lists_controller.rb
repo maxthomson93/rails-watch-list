@@ -1,12 +1,17 @@
 class ListsController < ApplicationController
   def index
     @lists = List.all
+    @list = List.new
+    @bookmark = Bookmark.new
+    @movies = Movie.all
   end
 
-  def show
-    @list = List.find(params[:id])
-    @bookmarks = @list.bookmarks
-  end
+ def show
+  @list = List.find(params[:id])
+  @bookmarks = @list.bookmarks
+  @bookmark = Bookmark.new
+  @movies = Movie.all
+end
 
   def new
     @list = List.new
@@ -17,7 +22,8 @@ class ListsController < ApplicationController
     if @list.save
       redirect_to list_path(@list)
     else
-      render 'new', status: :unprocessable_entity
+      @lists = List.all
+      render :index, status: :unprocessable_entity
     end
   end
 
